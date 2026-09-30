@@ -1,3 +1,27 @@
+<div id="particles-js"></div>
+
+<!-- scripts -->
+<script src="assets/Particles.js/particles.min.js"></script>
+<script src="assets/Particles.js/js/app.js"></script>
+
+<!-- stats.js -->
+<script src="assets/Particles.js/js/lib/stats.js"></script>
+<style>#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+}
+</style>
+<script>particlesJS.load('particles-js', 'assets/particles.json', function() {
+  console.log('callback - particles.js config loaded');
+});
+</script>
+
+<div class="content">
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +31,11 @@
 <style>
 html, body {
 transition: .5s;
+}
+
+/*Override max width of body set in new.css*/
+body {
+ max-width: 1000px;
 }
 
 @font-face {
@@ -201,6 +230,13 @@ transform: translateX(-50%) translateY(-50%);
 </div>
 
 <script>
+try {
+ getStoredJSON("gams", {key: "gamMode"});
+} catch(e) {
+ localStorage.removeItem("gams");
+ storeJSON("gams", {key: "gamMode", value: "gam"})
+}
+
 const BroadcastDisguise = new BroadcastChannel('BroadcastDisguise');
 
 function l(e) {
@@ -377,6 +413,9 @@ var gamsList = [
 {name: "Cookie Clicker", href: "g/g/cookie/index.html"},
 {name: "CPS Test"},
 {name: "Connect 3"},
+{name: "Block Blast"},
+{name: "Snake"},
+{name: "Subway Surfers"},
 {name: "Spacebar Clicker"},
 {name: "Offline Paradise"},
 {name: "Sand Game"},
@@ -391,11 +430,11 @@ var gamsList = [
 {name: "Mountain Maze"},
 {name: "Slope Maze"},
 {name: "Fluid Simulator"},
-{name: "Flappy Bird"},
 {name: "Edge Not Found"},
 {name: "Ninja vs EVILCORP"},
 {name: "Pushback"},
-{name: "Geometry Dash"},
+{name: "Geometry Dash Scratch"},
+{name: "Geometry Dash Lite"},
 {name: "Tetris"},
 {name: "Territorial.io"},
 {name: "Connect Four"},
@@ -406,20 +445,92 @@ var gamsList = [
 {name: "Minecraft"},
 {name: "Minecraft 1.8"},
 {name: "Mini Car Game"},
+{name: "Slither.io", href: "g/g/slither.io/index.html"},
 {name: "Block Dude"},
-{name: "Bloxorz"},
-{name: "Raft Wars"},
-{name: "Raft Wars 2"},
-{name: "Worlds Hardest Game"},
-{name: "The Impossible Quiz"},
-{name: "40x Escape"},
-{name: "Bloons Tower Defense 1"},
-{name: "Bloons Tower Defense 2"},
-{name: "Bloons Tower Defense 5"},
+{name: "Wordle"},
+{name: "Basket Random"},
+{name: "Boxing Random"},
+{name: "Volley Random"},
+{name: "Soccer Random"},
+{name: "Cluster Rush"},
+{name: "Vex 4"},
+{name: "Vex 5"},
+{name: "Vex 6"},
+{name: "Vex 7"},
+{name: "Vex 8"},
+{name: "Slow Roads"},
+{name: "Run 3"},
+{name: "Getaway Shootout"},
+{name: "Retro Bowl"},
+{name: "Paper IO 2"},
+{name: "Ragdoll Hit"},
+{name: "Ragdoll Archers"},
+{name: "Poly Track"},
+{name: "OvO"},
+{name: "OvO 2"},
+{name: "Moto X3M"},
+{name: "Moto X3M 2"},
+{name: "Moto X3M 3"},
+{name: "Monkey Mart"},
+{name: "Level Devil"},
+{name: "Unicycle Hero"},
+{name: "Undertale"},
+{name: "Trap The Cat"},
+{name: "Tomb Of The Mask"},
+{name: "Tiny Fishing"},
+{name: "Time Shooter 2"},
+{name: "Time Shooter 3"},
+{name: "Tap Road"},
+{name: "Tag"},
+{name: "State IO"},
+{name: "Plants VS Zombies"},
+{name: "Parking Fury"},
+{name: "Opposite Day"},
+{name: "MineSweeper"},
+{name: "Guess Their Answer"},
+{name: "Google Doodle Baseball"},
+{name: "Football Bros"},
+{name: "Clash Of Vikings"},
+{name: "Choppy Orc"},
+{name: "Survival Race"},
+{name: "Candy Crush"},
+{name: "Bit Planes"},
+{name: "Baseball Bros"},
+{name: "Bad Piggies"},
+{name: "Bacon May Die"},
+{name: "12 Mini Battles"},
+{name: "Draw Climber"},
+{name: "Death Run 3D"},
+{name: "Escape Road"},
+{name: "Escape Road 2"},
+{name: "Funny Shooter"},
+{name: "Funny Battle"},
+{name: "Elastic Face"},
+{name: "Crazy Cars"},
+{name: "Sonic Mania Plus"},
+{name: "Bow Masters"},
+{name: "Blumgi Racers"},
+{name: "Awesome Tanks"},
+{name: "8 Ball Classic"},
+{name: "Bitlife"},
+{name: "Snow Rider 3D"},
+{name: "Flappy Bird"},
+{name: "House Of Hazards"},
+{name: "Jetpack Joyride"},
+{name: "Fruit Ninja"},
 {name: "Breakout", href: "g/g/breakout/index.html"},
 {name: "Break Lock", href: "g/g/breaklock/index.html"},
 {name: "Cat Ninja"},
-{name: "Crossy Road", href: "g/g/crossyroad/index.html"},
+{name: "Crossy Road"},
+{name: "Eggy Car"},
+{name: "Gravity", href: "g/g/gravity/index.html"},
+{name: "Drift Boss"},
+{name: "Cut The Rope"},
+{name: "Crazy Cattle3D"},
+{name: "Basketball Stars"},
+{name: "Among Us"},
+{name: "Angry Birds"},
+{name: "3D Flight Simulator"},
 {name: "Cube Field", href: "g/g/cubefield/index.html"},
 {name: "Chess", href: "g/g/chess/index.html"},
 {name: "Detective Dash", href: "g/g/Detective-Dash/index.html"},
@@ -432,13 +543,36 @@ var gamsList = [
 {name: "Glass City", href: "g/g/Glasscity/glasscity.html"},
 {name: "Hole IO"},
 {name: "Tunnel Rush", href: "g/g/tunnelrush/tunnelrush.html"},
-{name: "Tanuki Sunset", href: "/g/g/tanukisunset/tanukisunset.html"},
+{name: "Tanuki Sunset", href: "g/g/tanukisunset/tanukisunset.html"},
 {name: "A Dance of Fire and Ice", href: "g/g/fireice/index.html"},
 {name: "Game Inside a Game", href: "g/g/gameinsideagame/index.html"},
 {name: "Cell Machine", href: "g/g/cellmachine/index.html"},
 {name: "Slope 2", href: "g/g/slope2/index.html"},
 {name: "Ai Creatures", href: "g/g/aicreatures/index.html"},
 {name: "Grey Box Testing", href: "g/g/greybox/index.html"},
+{name: "Space Waves"},
+{name: "Snowball IO"},
+{name: "Rooftop Snipers"},
+{name: "Melon Playground"},
+{name: "Backrooms"},
+{name: "Crazy Crash Landing"},
+{name: "Car Drawing"},
+{name: "Baldi's Basics"},
+{name: "Helix Jump"},
+{name: "Highway Traffic"},
+{name: "Hover Racer Drive"},
+
+{title: "Horror", type: "section"},
+{name: "FNAF"},
+{name: "FNAF 2"},
+{name: "FNAF 3"},
+{name: "FNAF 4"},
+{name: "FNAE", href: "g/g/FNAE/index.html"},
+{name: "Five Nights At Michael's", href: "g/g/FNAM/index.html"},
+{name: "FNAM Forest", href: "g/g/FNAMFOREST/index.html"},
+{name: "Scary Maze Game"},
+{name: "Granny"},
+{name: "Granny 2"},
 
 {title: "Retrogaming", type: "section"},
 {name: "Super Mario 64"},
@@ -450,24 +584,46 @@ var gamsList = [
 {name: "Retro Haunt"},
 
 {title: "Flash", type: "section"},
-{name: "2048", href: "g/swf/2048.swf"},
-{name: "Asteroids", href: "g/swf/Asteroids.swf"},
-{name: "Super-Mario-63", href: "g/swf/Super-Mario-63.swf"},
-{name: "Bullet-Bill", href: "g/swf/Bullet-Bill.swf"},
-{name: "Draw", href: "g/swf/Draw.swf"},
-{name: "Flight", href: "g/swf/Flight.swf"},
-{name: "HappyWheels", href: "g/swf/HappyWheels.swf"},
-{name: "Pacman", href: "g/swf/Pacman.swf"},
-{name: "Run-2", href: "g/swf/Run-2.swf"},
-{name: "Tetris", href: "g/swf/Tetris.swf"},
-{name: "Vex", href: "g/swf/Vex.swf"},
-{name: "Vex2", href: "g/swf/Vex2.swf"},
-{name: "Vex3", href: "g/swf/Vex3.swf"},
-{name: "Helicopter", href: "g/swf/Helicopter.swf"},
+{name: "Bloons Tower Defense 1"},
+{name: "Bloons Tower Defense 2"},
+{name: "Bloons Tower Defense 5"},
+{name: "Bloxorz"},
+{name: "Raft Wars"},
+{name: "Raft Wars 2"},
+{name: "Worlds Hardest Game"},
+{name: "The Impossible Quiz"},
+{name: "40x Escape"},
+{name: "Fire Boy And Water Girl"},
+{name: "Duck Life 1"},
+{name: "Duck Life 2"},
+{name: "Duck Life 3"},
+{name: "Duck Life 4"},
+{name: "Duck Life 5"},
+{name: "Learn To Fly 1"},
+{name: "Learn To Fly 2"},
+{name: "Learn To Fly 3"},
+{name: "A Koopa's Revenge"},
+{name: "A Koopa's Revenge 2"},
+{name: "2048 Flash"},
+{name: "Asteroids"},
+{name: "Super Mario 63"},
+{name: "Bullet-Bill"},
+{name: "Draw"},
+{name: "Flight"},
+{name: "HappyWheels"},
+{name: "Pacman"},
+{name: "Tetris Flash"},
+{name: "Run"},
+{name: "Run 2"},
+{name: "Vex"},
+{name: "Vex2"},
+{name: "Vex3"},
+{name: "Helicopter"},
+{name: "Papas Pizzeria"},
 
 {title: "Tools", type: "section"},
 {name: "Ruffle Flash Player", href: "g/g/Ruffle/Ruffle.html"},
-{name: "ROM Player"},
+{name: "ROM Player", href: "g/g/romplayeroffline/romplayeroffline.html"},
 ];
 
 var container = createElement('div', {
@@ -506,6 +662,13 @@ section.innerHTML = currentSection;
 tile.appendChild(section);
 }
 
+var modeX = createElement('span', {
+class: "modeX",
+style: "display:none"
+});
+modeX.innerHTML = gamsList[j].type;
+tile.appendChild(modeX);
+
 var aName = (gamsList[j].name).toLowerCase().replace(/\s/g, '');
 var aHref = (gamsList[j].href) || 'g/' + imgName + '.html';
 var a = createElement('a', {
@@ -534,9 +697,12 @@ for (i = 0; i < gams.length; i++){
 gams[i].onclick = function(e){
 var href = (this.getElementsByClassName("href")[0].href);
 var name = (this.getElementsByClassName("name")[0].innerText);
+var modeX = (this.getElementsByClassName("modeX")[0].innerText);
 var pic = (this.getElementsByClassName("img")[0].src);
 
 mode = getStoredJSON('gams', {key: 'gamMode'}) || 'gam';
+
+if (modeX == "raw") {mode = modeX}
 
 if (mode == 'raw') {
 window.open(href);
@@ -674,4 +840,4 @@ applyDisguise();
 };
 </script>
 </body>
-</html>
+</html></div>
